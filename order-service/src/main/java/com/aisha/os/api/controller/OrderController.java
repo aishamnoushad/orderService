@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aisha.os.api.Common.Payment;
+import com.aisha.os.api.Common.TransactionRequest;
+import com.aisha.os.api.Common.TransactionResponse;
 import com.aisha.os.api.entity.Order;
 import com.aisha.os.api.service.OrderService;
 
@@ -17,8 +20,8 @@ public class OrderController {
 	@Autowired
 	private OrderService service;
 	@RequestMapping(value="/bookorder",method=RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Order bookOrder(@RequestBody Order orderobj) {
-		System.out.println(orderobj.toString());
-		return service.saveOrder(orderobj);
+	public TransactionResponse bookOrder(@RequestBody TransactionRequest Request) {
+		System.out.println(Request.toString());
+		return service.saveOrder(Request);
 	}
 }
