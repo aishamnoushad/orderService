@@ -21,7 +21,7 @@ public class OrderController {
 	private OrderService service;
 	@RequestMapping(value="/bookorder",method=RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public TransactionResponse bookOrder(@RequestBody TransactionRequest Request) {
-		System.out.println(Request.toString());
+		System.out.println("transaction Request:-"+Request.toString());
 		return service.saveOrder(Request);
 	}
 }
