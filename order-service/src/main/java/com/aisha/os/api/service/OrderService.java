@@ -26,7 +26,7 @@ public class OrderService {
 		System.out.println("order object:"+order);
 		//rest API Call
 		//Payment paymentResponse = restTemplate.postForEntity("http://localhost:8182/payments/doPayment", payment, Payment.class);
-		Payment paymentResponse = restTemplate.postForObject("http://localhost:8182/payments/doPayment", payment, Payment.class);
+		Payment paymentResponse = restTemplate.postForObject("http://PAYMENT-SERVICE/payments/doPayment", payment, Payment.class);
 		message = paymentResponse.getPaymentStatus().equalsIgnoreCase("Success")?
 				"Payment processing successful and order placed":
 					"Something wrong happened while processing the payment";
